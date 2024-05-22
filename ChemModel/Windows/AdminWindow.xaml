@@ -390,7 +390,7 @@
                                         ItemsSource="{Binding Units}"
                                         SelectedItem="{Binding NewPropUnit}"
                                         Margin="5"
-                                        materialDesign:HintAssist.Hint="Еденицы измерения"
+                                        materialDesign:HintAssist.Hint="Единицы измерения"
                                         Style="{StaticResource MaterialDesignOutlinedComboBox}" />
                                     <Button HorizontalAlignment="Center" Content="Добавить" Margin="15"
                                             Command="{Binding AddPropCommand}" />
