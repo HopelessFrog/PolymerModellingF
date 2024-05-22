@@ -507,7 +507,7 @@
                                         ItemsSource="{Binding Units}"
                                         SelectedItem="{Binding NewParamUnit}"
                                         Margin="5"
-                                        materialDesign:HintAssist.Hint="Еденицы измерения"
+                                        materialDesign:HintAssist.Hint="Единицы измерения"
                                         Style="{StaticResource MaterialDesignOutlinedComboBox}" />
                                     <Button HorizontalAlignment="Center" Content="Добавить" Margin="15"
                                             Command="{Binding AddParamCommand}" />
@@ -544,7 +544,7 @@
                                                      Text="{Binding Chars,UpdateSourceTrigger=PropertyChanged}" />
 
                                             <TextBox MinWidth="100"
-                                                     materialDesign:HintAssist.Hint="Еденицы измерения"
+                                                     materialDesign:HintAssist.Hint="Единицы измерения"
                                                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                                      HorizontalContentAlignment="Center"
                                                      Margin="5"
@@ -664,7 +664,7 @@
                                 </ListBox>
                             </ScrollViewer>
                         </GroupBox>
-                        <GroupBox Grid.Row="1" Header="Эмперические коэфиценты">
+                        <GroupBox Grid.Row="1" Header="Эмпирические коэффициенты">
 
                             <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
                                 <ListBox x:Name="mathPropList" ItemsSource="{Binding MathProps}">
