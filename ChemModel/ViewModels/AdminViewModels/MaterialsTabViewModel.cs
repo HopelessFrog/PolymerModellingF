@@ -154,6 +154,8 @@ namespace ChemModel.ViewModels
                 ctx.SaveChanges();
             }
             Mats.Add(new MatGrid() { Id = material.Id, Name = material.Name });
+            using Context ct1x = new Context();
+            var q = ct1x.Materials.ToList();
         }
 
         public void Receive(UserMessage message)
@@ -178,7 +180,7 @@ namespace ChemModel.ViewModels
         {
             WeakReferenceMessenger.Default.Unregister<MaterialMessage>(this);
             WeakReferenceMessenger.Default.Unregister<UserMessage>(this);
-            WeakReferenceMessenger.Default.Register<NewPropMessage>(this);
+            WeakReferenceMessenger.Default.Unregister<NewPropMessage>(this);
             WeakReferenceMessenger.Default.Unregister<ChangeDbMEssage>(this);
         }
     }

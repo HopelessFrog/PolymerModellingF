@@ -45,24 +45,42 @@ namespace ChemModel.ViewModels
         [RelayCommand]
         private async void Copy()
         {
+            var test = "";
+            List<Material> qwe = new List<Material>();
+            using (Context ctx = new Context() )
+            {
+                qwe = ctx.Materials.Include(m => m.MathModelProperties).Include(m => m.Properties).ToList();
+                ctx.SaveChanges();
+
+            }
             await Task.Run(() => CopyChange());
 
             if (DBConfig.Destination == @"qwe.db")
             {
               
                 File.Copy(DBConfig.Destination, "qweS.db", true);
-
+                test = "qweS.db";
             }
             else
             {
                
                 File.Copy(DBConfig.Destination, "qwe.db", true);
+                test = "qwe.db";
+
 
             }
 
             DBConfig.LastSave = DateTime.Now.ToString();
            
             DBConfig.RealSave = true;
+            using (Context ctx = new Context(test))
+            {
+                var t = ctx.Materials.Include(m => m.MathModelProperties).Include(m => m.Properties).ToList();
+                ctx.Materials.RemoveRange(t);
+                ctx.Materials.AddRange(qwe);
+                ctx.SaveChanges();
+
+            }
         }
 
         private async Task RecoverChange()
