@@ -53,7 +53,7 @@ namespace ChemModel.ViewModels
             SaveFileDialog dlg = new SaveFileDialog();
             dlg.FileName = "Result";
             dlg.DefaultExt = ".xlsx";
-            dlg.Filter = "Элктронная таблица (.xlsx)|*.xlsx";
+            dlg.Filter = "(.xlsx)|*.xlsx";
             bool? result = dlg.ShowDialog();
             if (result == true)
             {
@@ -61,7 +61,7 @@ namespace ChemModel.ViewModels
                 {
                     ToExcelFile(data, dlg.FileName);
                 }
-                catch
+                catch(Exception e)
                 {
                     MessageBox.Show("Невозможно сохранить этот файл, сначала закройте его", "Ошибка",
                         MessageBoxButton.OK, MessageBoxImage.Error);
